@@ -54,14 +54,27 @@ Static files like CSS, images, and JavaScript are stored in the `static` directo
 
 ## Usage
 
-To run the Hyperion Django project, follow these steps:
+### To run the Hyperion Django project, follow these steps:
 
-1. Set up a virtual environment.
-2. Install the required dependencies from `requirements.txt`.
-3. Configure the database settings in `settings.py`.
-4. Run migrations to create the database schema: `python manage.py makemigrations` and `python manage.py migrate`.
-5. Start the development server: `python manage.py runserver`.
-6. Access the project components using the provided URLs.
+1. Clone the repository: git clone https://github.com/vilakazisoul/DjangoIV.git
+2. Navigate to project directory: cd DjangoIV
+3. Set up a virtual environment: python -m venv venv
+4. Activate the virtual envirnoment:
+   Windows: venv\Scripts\activate
+   macOS and Linux: source venv/bin/activate
+5. Install the required dependencies listed in requirements.txt: pip install -r requirements.txt
+6. Configure the database settings in `settings.py`.
+7. Run migrations to create the database schema: `python manage.py makemigrations` and `python manage.py migrate`.
+8. Start the development server: `python manage.py runserver`.
+9. Access the project components using the provided URLs.
+   
+  [Main webapp](http://127.0.0.1:8000/)
+
+  [Blog](http://127.0.0.1:8000/blog/)
+
+  [Polls](http://127.0.0.1:8000/polls/)
+
+  [Personal Webpage](http://127.0.0.1:8000/webapp/)
 
 Feel free to modify the templates, views, and models to customize the project according to your needs.
 
