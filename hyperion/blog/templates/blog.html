@@ -1,0 +1,21 @@
+{% extends "header.html" %}  <!-- Extends the base template "header.html" -->
+
+{% block content %}  <!-- Defines a content block that will be overridden in the extending template -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="list-group">
+                    {% for post in object_list %}  <!-- Loop through each post in the object_list -->
+                        <a href="/blog/{{ post.id }}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ post.date|date:"Y-m-d" }}</h5>  <!-- Display post date -->
+                                <small>{{ post.author }}</small>  <!-- Display post author -->
+                            </div>
+                            <p class="mb-1">{{ post.title }}</p>  <!-- Display post title -->
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}  <!-- Closes the content block -->

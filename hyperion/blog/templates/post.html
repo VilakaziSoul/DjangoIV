@@ -1,0 +1,21 @@
+{% extends "header.html" %}  <!-- Extends the base template "header.html" -->
+
+{% block content %}  <!-- Defines a content block that will be overridden in the extending template -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h3><a href="/blog/{{ post.id }}">{{ post.title }}</a></h3>  <!-- Display post title with a link to the post's detail page -->
+            <h6>On {{ post.date|date:"Y-m-d" }}</h6>  <!-- Display post date -->
+            <div class="mt-3">
+                {{ post.body|safe|linebreaks }}  <!-- Display post body, allowing safe HTML and adding line breaks -->
+            </div>
+            <div class="mt-3">
+                <p class="signature">- {{ post.signature }}</p>  <!-- Display post signature -->
+            </div>
+            <div class="mt-3">
+                <a href="/" class="btn btn-primary">Back to Home</a>  <!-- Link to the home page -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}  <!-- Closes the content block -->

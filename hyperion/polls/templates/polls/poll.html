@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latest Polls</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-5">
+    <!-- Heading for the list of latest polls -->
+    <h1 class="text-center mb-4">Latest Polls</h1>
+
+    <!-- Check if there are latest polls available -->
+    {% if latest_question_list %}
+    <!-- Display a list of polls -->
+    <ul class="list-group">
+        {% for question in latest_question_list %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- Link to the poll's detail page -->
+            <a href="{% url 'polls:detail' question.id %}" class="text-decoration-none text-dark">
+                <!-- Display the question text -->
+                {{ question.question_text }}
+            </a>
+            <!-- Display the number of choices with a badge -->
+            <span class="badge bg-primary rounded-pill">{{ question.choice_set.count }} choices</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <!-- Display a message when no polls are available -->
+    <p class="text-center">No polls are available.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

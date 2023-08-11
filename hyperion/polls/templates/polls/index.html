@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latest Polls</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-5">
+    <!-- Heading for the list of latest polls -->
+    <h1 class="text-center mb-4">Latest Polls</h1>
+
+    <!-- Display a list of polls using Bootstrap's list-group -->
+    <ul class="list-group">
+        {% for question in latest_polls %}
+        <li class="list-group-item">{{ question.question_text }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>

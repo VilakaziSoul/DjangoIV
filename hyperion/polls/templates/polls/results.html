@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poll Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-5">
+    <!-- Jumbotron for displaying the question text -->
+    <div class="jumbotron text-center">
+        <h1 class="display-4">{{ question.question_text }}</h1>
+    </div>
+
+    <!-- List of choices and their vote counts -->
+    <ul class="list-group">
+        {% for choice in question.choice_set.all %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- Choice text -->
+            {{ choice.choice_text }}
+            <!-- Vote count with badge -->
+            <span class="badge bg-primary rounded-pill">{{ choice.votes }} vote{{ choice.votes|pluralize }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Link to vote again -->
+    <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary mt-3">
+        Vote again?
+    </a>
+</div>
+
+</body>
+</html>
